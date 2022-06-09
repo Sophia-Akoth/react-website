@@ -19,10 +19,9 @@ FROM nginx:alpine
 
 #!/bin/sh
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/react-project
 
-## Remove default nginx index page
-RUN rm -rf /usr/share/nginx/html/*
+
 
 # Copy from the stahg 1
 COPY ./build /var/www/react-website
