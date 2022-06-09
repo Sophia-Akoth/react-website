@@ -19,12 +19,10 @@ FROM nginx:alpine
 
 #!/bin/sh
 
-COPY ./nginx.conf /etc/nginx/react-project
+COPY ./nginx.conf /etc/nginx/sites-available/react-project
 
-
-
-# Copy from the stahg 1
-COPY ./build /var/www/react-website
+# Copy from the stage 1
+COPY --from=builder /react-website/build /var/www/react-website
 
 EXPOSE 80
 
